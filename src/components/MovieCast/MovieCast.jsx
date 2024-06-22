@@ -10,10 +10,11 @@ const MovieCast = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
+  const defaultImg =
+    "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
   useEffect(() => {
-    if(!movieId) return;
+    if (!movieId) return;
     const fetchMovies = async () => {
       setIsLoading(true);
       try {
@@ -37,17 +38,17 @@ const MovieCast = () => {
           {cast.map((actor) => (
             <ul key={actor.id}>
               <li>
-              <img
-              src={
-                actor.profile_path 
-                  ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-                  : defaultImg
-              }
-              width={250}
-              alt={actor.name || "poster"}
-              />
-              <p>{actor.name}</p>
-              <p>Character: {actor.character}</p>
+                <img
+                  src={
+                    actor.profile_path
+                      ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                      : defaultImg
+                  }
+                  width={150}
+                  alt={actor.name || "poster"}
+                />
+                <p>{actor.name}</p>
+                <p>Character: {actor.character}</p>
               </li>
             </ul>
           ))}

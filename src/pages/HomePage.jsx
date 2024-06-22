@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getTrendingMovies} from "../components/apiServise/movies.js"
+import { getTrendingMovies } from "../components/apiServise/movies.js";
 import MovieList from "../components/MovieList/MovieList.jsx";
 import Loader from "../components/Loader/Loader.jsx";
 import toast from "react-hot-toast";
@@ -32,6 +32,6 @@ const HomePage = () => {
       <MovieList movies={movies} />
     </div>
   );
-}
+};
 
-export default HomePage
+export default HomePage;

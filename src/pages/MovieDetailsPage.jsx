@@ -3,6 +3,7 @@ import { getMovieDetails } from "../components/apiServise/movies";
 import Loader from "../components/Loader/Loader";
 import toast from "react-hot-toast";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { GoArrowLeft } from "react-icons/go";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -11,11 +12,12 @@ const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
-  const backLink = location.state?.from ?? '/movies';
+  const defaultImg =
+    "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+  const backLink = location.state?.from ?? "/movies";
 
   useEffect(() => {
-    if(!movieId) return;
+    if (!movieId) return;
     const fetchMovies = async () => {
       setIsLoading(true);
       try {
@@ -32,13 +34,16 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-       <Link to={backLink}>Go back</Link>
+      <Link to={backLink}>
+        <GoArrowLeft />
+        Go back
+      </Link>
       {isLoading && <Loader />}
       {error && toast.error("Can not be empty!")}
       <h1>{movie.title}</h1>
       <img
         src={
-          movie.poster_path 
+          movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
             : defaultImg
         }
@@ -68,8 +73,16 @@ const MovieDetailsPage = () => {
         </>
       )}
       <ul>
-        <li><Link to="cast" state={{ from: backLink }}>Cast</Link></li>
-        <li><Link to="reviews" state={{ from: backLink }}>Reviews</Link></li>
+        <li>
+          <Link to="cast" state={{ from: backLink }}>
+            Cast
+          </Link>
+        </li>
+        <li>
+          <Link to="reviews" state={{ from: backLink }}>
+            Reviews
+          </Link>
+        </li>
       </ul>
       <Outlet />
     </div>

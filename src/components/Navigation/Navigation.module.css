@@ -1,17 +1,17 @@
 .link {
-    text-decoration: none;
-    color: green;
-  }
-  
-  .link:hover {
-    background-color: rgba(172, 255, 47, 0.304);
-  }
-  
-  .active {
-    background-color: greenyellow;
-  }
-  
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  color: green;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 4px 2px -2px gray;
+}

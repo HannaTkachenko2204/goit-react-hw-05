@@ -11,7 +11,7 @@ const MovieReviews = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if(!movieId) return;
+    if (!movieId) return;
     const fetchMovies = async () => {
       setIsLoading(true);
       try {
@@ -35,8 +35,8 @@ const MovieReviews = () => {
           {reviews.map((review) => (
             <ul key={review.id}>
               <li>
-              <h2>Author: {review.author}</h2>
-              <p>{review.content}</p>
+                <h2>Author: {review.author}</h2>
+                <p>{review.content}</p>
               </li>
             </ul>
           ))}
