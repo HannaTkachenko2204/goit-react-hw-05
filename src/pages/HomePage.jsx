@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Trending movies</h1>
+      <h2>Trending movies</h2>
       {isLoading && <Loader />}
       {error && toast.error("Can not be empty!")}
       <MovieList movies={movies} />

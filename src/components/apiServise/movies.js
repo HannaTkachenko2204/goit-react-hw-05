@@ -9,11 +9,10 @@ export const getTrendingMovies = async () => {
   return data;
 };
 
-export const searchMovies = async ( query, page ) => {
+export const searchMovies = async ( query ) => {
   const { data } = await axios.get('/search/movie', {
     params: {
       query,
-      page,
     },
   });
   return data.results;

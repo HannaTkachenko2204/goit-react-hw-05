@@ -1,34 +1,42 @@
-import { useState } from "react";
-import MovieList from "../components/MovieList/MovieList";
+import { useEffect, useState } from "react";
 import { searchMovies } from "../components/apiServise/movies";
 import Loader from "../components/Loader/Loader";
 import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
+import MovieList from "../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const query = searchParams.get("query");
+  const query = searchParams.get("query") || "";
 
-  const handleSearch = async (event) => {
-      event.preventDefault();
-      if (!searchQuery.trim()) {
-        return toast.error("Can not be empty!");
-      }
-      setIsLoading(true);
+  useEffect(() => {
+    if (query) {
+      const fetchMovies = async () => {
+        setIsLoading(true);
       try {
-        const data = await searchMovies(searchQuery);
+        const data = await searchMovies(query);
         setMovies(data);
       } catch (error) {
         setError(error);
       } finally {
         setIsLoading(false);
       }
-      setSearchQuery("");
+    }
+      fetchMovies();
+  }
+    }, [query])
+
+  const handleSearch = (event) => {
+      event.preventDefault();
+      if (!searchQuery.trim()) {
+        return toast.error("Can not be empty!");
+      }
+      setSearchParams({ query: searchQuery });
     }
 
   const handleChange = (event) => {
