@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getMovieDetails } from "../components/apiServise/movies";
-import Loader from "../components/Loader/Loader";
+import { getMovieDetails } from "../../components/apiServise/movies";
+import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";

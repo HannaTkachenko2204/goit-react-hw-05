@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { searchMovies } from "../components/apiServise/movies";
-import Loader from "../components/Loader/Loader";
+import { searchMovies } from "../../components/apiServise/movies";
+import Loader from "../../components/Loader/Loader";
 import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
-import MovieList from "../components/MovieList/MovieList";
-import SearchForm from "../components/SearchForm/SearchForm";
+import MovieList from "../../components/MovieList/MovieList";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
