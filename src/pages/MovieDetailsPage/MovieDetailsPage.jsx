@@ -72,6 +72,7 @@ const MovieDetailsPage = () => {
           <p>{movie.overview}</p>
         </>
       )}
+      <h2>Additional information</h2>
       <ul>
         <li>
           <Link to="cast" state={{ from: backLink }}>
